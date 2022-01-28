@@ -1,4 +1,4 @@
-# [age to days](https://edabit.com/challenge/bL7hSc6Zh4zZJzGmw)
+# [add numbers](https://edabit.com/challenge/4gzDuDkompAqujpRi))
 
 > this function will add up numbers from one to the given argument number
 
@@ -20,11 +20,6 @@
 
 Test.assertEquals(addUp(4), 10) Test.assertEquals(addUp(13), 91)
 Test.assertEquals(addUp(600), 180300)
-
-## Use Cases
-
-- for schools to know the exact age of the child
-- for children doctors
 
 ## Edge Cases
 

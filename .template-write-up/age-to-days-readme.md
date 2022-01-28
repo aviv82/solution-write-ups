@@ -1,35 +1,33 @@
-# [age to days](https://edabit.com/challenge/bL7hSc6Zh4zZJzGmw)
+# [challengeName](link-to-challenge)
 
 > this function will add up numbers from one to the given argument number
 
 ## Syntax
 
-> addUp(Number) -> Number
+> calcAge(Number) -> Number
 
 ### Parameters
 
 **paramName**: Number
 
-- a number given by the user to add up the numbers before it starting from one
+- the age of the user in years
 
 ### Return Value: Number
 
-- all the numbers from one to the parameter
+- the age of the user in days
 
 ## Test Cases
 
-Test.assertEquals(addUp(4), 10) Test.assertEquals(addUp(13), 91)
-Test.assertEquals(addUp(600), 180300)
+Test.assertEquals(calcAge(60), 21900) Test.assertEquals(calcAge(45), 16425)
+Test.assertEquals(calcAge(2), 730)
 
-## Use Cases
-
-- for schools to know the exact age of the child
-- for children doctors
+##
 
 ## Edge Cases
 
-- negative numbers, gives zero
-- float numbers, rounds up to whole number
+- enter age in months or weeks
+- strings, gives NaN
+- negative numbers, gives negative result
 
 ---
 
