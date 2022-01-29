@@ -1,6 +1,6 @@
 # remove exclamation mark
 
-- [origin](https://www.codewars.com/kata/57faece99610ced690000165>)
+- [origin](https://www.codewars.com/kata/57faece99610ced690000165)
 
 ## motivation
 
