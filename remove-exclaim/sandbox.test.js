@@ -60,7 +60,7 @@ for (const solution of [secondRemove, thirdRemove, fourthRemove]) {
     });
     describe('argument is not a string', () => {
       it('6 --> throw TypeError', () => {
-        expect(() => solution(6)).toTrow(
+        expect(() => solution(6)).toThrow(
           new TypeError('input text is not a string'),
         );
       });
