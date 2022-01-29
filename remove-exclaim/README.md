@@ -43,34 +43,7 @@
 ```js
 let userInput = 'give me liberty or give me death!!!';
 let formatInput = removeExclaim(userInput);
-console.log(formatInput);
+console.log(formatInput); // give me liberty or give me death
 ```
 
 ## retrospective
-
-## solutions
-
-### 1
-
-```js
-function remove(s) {
-  while (s && s.slice(-1) == '!') {
-    s = s.slice(0, -1);
-  }
-  return s;
-}
-```
-
-### 2
-
-```js
-function remove(s) {
-  return s.replace(/!+$/, '');
-}
-```
-
-### 3
-
-```js
-const remove = (s) => s.replace(/!+$/, '');
-```
