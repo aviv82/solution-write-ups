@@ -1,15 +1,13 @@
 'use strict';
 
-const { iteratorTrieWords } = require('cspell-trie-lib');
-
 // other's solutions
-
+/*
 function firstRemove(s) {
   while (s && s.slice(-1) == '!') {
     s = s.slice(0, -1);
   }
   return s;
-}
+} */
 
 function secondRemove(s) {
   return s.replace(/!+$/, '');
@@ -33,8 +31,8 @@ function fourthRemove(s = '') {
 
 // write tests
 
-for (const solution of [firstRemove, secondRemove, thirdRemove, fourthRemove]) {
-  describe(solution.name + ': remove end of sentence exclamation mark', () => {
+for (const solution of [secondRemove, thirdRemove, fourthRemove]) {
+  describe('remove end of sentence exclamation mark', () => {
     describe('default parameter is empty string', () => {
       it('default parameter is empty string', () => {
         expect(solution()).toEqual('');
