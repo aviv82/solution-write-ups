@@ -47,7 +47,3 @@ console.log(formatInput); // give me liberty or give me death
 ```
 
 ## retrospective
-
-- this was a simple challenge on its face, but actually i learned a lot from it
-- learned some new terms like implicit vs. explicit
-- also learned about the replace and slice methods and their syntax
