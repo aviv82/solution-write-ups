@@ -1,49 +1,49 @@
-# remove exclamation mark
+# sentence smash
 
-- [origin](https://www.codewars.com/kata/57faece99610ced690000165)
+- [origin](https://www.codewars.com/kata/53dc23c68a0c93699800041d)
 
 ## motivation
 
 ### description
 
-- Remove all exclamation marks from the end of sentence.
+- concatenate values in a string array into a string sentence, including space
+  between words
 
 ### application
 
-- formatting of standardized forms, questionnaires or surveys
-
-- grammar correction
+- auto formatting of user input into coherent output
+- grammar recognition of sentence elements
 
 ## syntax
 
-> removeExclaim(text) --> text
+> sentenceSmash(words[]) --> sentence
 
 ### parameters
 
-### text: string
+### words: string array
 
-- a sentence
+- an array of string values
 
 ### return: string
 
-- `text` modified with all exclamation marks(!) removed
+- `text` the values from the words array concatenated into a sentence
 
 ## test cases
 
-> remove("Hi!") === "Hi" remove("Hi!!!") === "Hi" remove("!Hi") === "!Hi"
-> remove("!Hi!") === "!Hi" remove("Hi! Hi!") === "Hi! Hi" remove("Hi") === "Hi"
+> ['hello', 'world', 'this', 'is', 'great'] => 'hello world this is great'
 
 ## use cases
 
-> this snippet is only useful when used when applied to words or sentences i
-> chose three examples which apply two different strategies
+> this snippet is only useful when used when applied to string arrays(or
+> potentially mixed strings and number arrays) i chose three examples which
+> apply two different strategies
 
-- remove exclamation mark
+- join values in string array into a sentence
 
 ```js
-let userInput = 'give me liberty or give me death!!!';
-let formatInput = removeExclaim(userInput);
-console.log(formatInput); // give me liberty or give me death
+let words = ['to', 'sleep,', 'perhaps', 'to', 'dream.'];
+let newSentence = smash(words);
+console.log(newSentence); // to sleep, perhaps to dream.
 ```
 
 ## retrospective
