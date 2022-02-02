@@ -1,5 +1,3 @@
-/* eslint-disable prefer-arrow/prefer-arrow-functions */
-
 'use strict';
 
 // other's solutions
@@ -24,7 +22,7 @@ let smash3 = (words) => words.join(' ');
 // my solutions
 
 // eslint-disable-next-line no-unused-vars
-function smash4(words = []) {
+const smash4 = (words = []) => {
   if (!Array.isArray(words)) {
     throw new TypeError('input words is not an array');
   } else if (
@@ -35,48 +33,61 @@ function smash4(words = []) {
     throw new TypeError('array is not array of strings');
   }
   return words.join(' ');
-}
+};
 
 // provided test cases
 
-// ['hello', 'world', 'this', 'is', 'great'] => 'hello world this is great'
+// ['hello', 'world', 'this', 'is', 'great'] => 'hello world this is great.'
 
-// ['hello', 'world', 'this', 'is', 'great'] => 'hello world this is great'
+// ['call', 'me', 'by', 'your', 'name.'] => 'call me by your name.'
 
 // write tests
 
 for (const solution of [smash1, smash2, smash3]) {
-  describe('remove end of sentence exclamation mark', () => {
-    describe('default parameter is empty string', () => {
-      it('default parameter is empty string', () => {
+  describe('concatenate values in array to a sentence string', () => {
+    describe('default parameter is empty array', () => {
+      it('default parameter returns empty string', () => {
         expect(solution()).toEqual('');
       });
     });
-    describe('default parameter is string', () => {
-      it('Hi! --> Hi', () => {
-        expect(solution('Hi!')).toEqual('Hi');
+    describe('argument is an empty array', () => {
+      it('empty array should return empty string', () => {
+        expect(solution([])).toEqual('');
       });
-      it('Hi!!! --> Hi', () => {
-        expect(solution('Hi!!!')).toEqual('Hi');
-      });
-      it('!Hi --> !Hi', () => {
-        expect(solution('!Hi')).toEqual('!Hi');
-      });
-      it('Hi! Hi! --> Hi! Hi', () => {
-        expect(solution('Hi! Hi!')).toEqual('Hi! Hi');
-      });
-      it('Hi! --> Hi', () => {
-        expect(solution('Hi!')).toEqual('Hi');
-      });
-      it('Hi --> Hi', () => {
-        expect(solution('Hi')).toEqual('Hi');
-      });
-    });
-    describe('argument is not a string', () => {
-      it('6 --> throw TypeError', () => {
-        expect(() => solution(6)).toTrow(
-          new TypeError('input text is not a string'),
-        );
+      describe('argument is an array', () => {
+        describe('argument is an array of strings', () => {
+          it('["go", "deliver", "a", "dare", "vile", "dog."] should return string sentence with spacing', () => {
+            expect(
+              solution(['go', 'deliver', 'a', 'dare', 'vile', 'dog.']),
+            ).toEqual('go deliver a dare vile dog.');
+          });
+          it('["go", "go", "power", "rangers."] should return string sentence with spacing', () => {
+            expect(solution(['go', 'go', 'power', 'rangers.'])).toEqual(
+              'go go power rangers.',
+            );
+          });
+          describe('argument is an array of numbers', () => {
+            it('[4, 87, 91] should throw a type error', () => {
+              expect(() => solution([4, 87, 91])).toThrow(
+                new TypeError('array is not array of strings'),
+              );
+            });
+            describe('argument is an array of mixed values', () => {
+              it('["gone", 7, false, NaN, undefined, null, "4"] should throw a type error', () => {
+                expect(() =>
+                  solution(['gone', 7, false, NaN, undefined, null, '4']),
+                ).toThrow(new TypeError('array is not an array of strings'));
+              });
+            });
+          });
+          describe('argument is not an array', () => {
+            it('"tell me lies" --> throw TypeError', () => {
+              expect(() => solution('tell me lies')).toTrow(
+                new TypeError('argument is not an array'),
+              );
+            });
+          });
+        });
       });
     });
   });
