@@ -1,7 +1,7 @@
 'use strict';
 
 // other's solutions
-
+/*
 function smash1(words) {
   var smashed = '';
   for (var i = 0; i < words.length; i++) {
@@ -18,7 +18,7 @@ function smash2(words) {
 }
 
 let smash3 = (words) => words.join(' ');
-
+*/
 // my solutions
 
 // eslint-disable-next-line no-unused-vars
@@ -43,7 +43,7 @@ const smash4 = (words = []) => {
 
 // write tests
 
-for (const solution of [smash1, smash2, smash3]) {
+for (const solution of [smash4]) {
   describe('concatenate values in array to a sentence string', () => {
     describe('default parameter is empty array', () => {
       it('default parameter returns empty string', () => {
