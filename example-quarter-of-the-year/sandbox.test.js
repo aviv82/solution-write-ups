@@ -1,3 +1,6 @@
+/* eslint-disable no-bitwise */
+/* eslint-disable no-unused-vars */
+
 'use strict';
 
 /* Quarter of the year
@@ -6,6 +9,7 @@
 
 */
 
+// eslint-disable-next-line no-unused-vars
 const ldq = (month) => {
   // return Math.floor(((month + 11) / 3) % 4) + 1;
 
@@ -97,6 +101,7 @@ const linisnie = (m) => (m / 3 + 0.7) | 0;
 
 const zedCwt = (Q) => 0 | ((2 + Q) / 3);
 
+// eslint-disable-next-line no-param-reassign
 const visph = (m) => ((--m / 3) | 0) + 1;
 
 // ----
@@ -168,6 +173,7 @@ for (const solution of [
   // olderMySolution,
   bitwiseOr,
 ]) {
+  // eslint-disable-next-line prefer-template
   describe(solution.name + ': quarter of the year', () => {
     describe('the numbers 1 to 12', () => {
       it('1 -> 1', () => expect(solution(1)).toEqual(1));

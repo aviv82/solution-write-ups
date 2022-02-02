@@ -19,32 +19,37 @@ function smash(words) {
 
 ## strategy
 
-- a solution that creates a new string variable for the sentence. it then
-  applies a for loop that scrolls through the array and for every value checks
-  if the value is the first in the sentence. if it is, it is concatenated
-  without being preceded by spacing, otherwise it is concatenated with spacing
+- a solution that creates a new sentence. it then applies an iteration that
+  scrolls through the array and for every value checks if the value is the last
+  in the sentence. if it is, it is added without being followed by spacing,
+  otherwise it is added with spacing
 
 ## implementation
 
-- this solution applies a while loop where as long as the text contains an
-  exclamation mark as the last character of its string the slice method will
-  apply to edit out the last character
+- this solution creates a new string variable for the sentence. it then applies
+  a for loop that scrolls through the array. for every indexed value it checks
+  if the value is the last in the sentence by comparing its index to the length
+  of the array minus one. if it is, it is concatenated without being followed by
+  spacing, otherwise it is concatenated with spacing
 
 ### function - explicit
 
-### while loop - specifies the condition when the code should execute
+### for loop - iterates for every indexed value in the array
 
-### slice method - trims string value
+### if condition - checks if concatenated value is last in order
 
 ## possible refractors
 
-- instead of while loop could use a for loop to iterate through the text, either
-  with an index or `const of`
+- use let/const instead of var
+
+- instead of for loop could maybe use forEach method
+
+- if condition could be written as ternary
 
 ## references
 
-- learned more about
-  [slice method](https://www.w3schools.com/jsref/jsref_slice_string.asp)
+- learned more about using
+  ['use strict' in a function](https://www.tutorialspoint.com/in-javascript-why-do-we-use-use-strict)
 
 ## second solution
 
@@ -58,27 +63,27 @@ function smash(words) {
 
 ## strategy
 
-- this solution foregoes the scroll through the text and simply gets rid of the
-  exclamation marks all at once
+- this solution adds the words in the array together into a sentence with
+  spacing between the words
 
 ## implementation
 
-- the second solution uses a replace method instead of slice. instead of slicing
-  out the exclamation mark it is replaced with an empty string
+- this solution applies a join method to concatenate array values into a string
+  and concatenates spacing between the values
 
 ### function - explicit
 
-### replace method- replaces all question marks in text at once with empty strings
+### join method - concatenates values in an array with spacing between values
 
 ## possible refractors
 
-- this solution is already very short and optimized. i am not sure about the
-  dollar sign and why it is there
+- this solution is already very short and optimized. function could probably be
+  written as implicit
 
 ## references
 
-- learned more about dollar
-  [sign in js](https://www.thoughtco.com/and-in-javascript-2037515)
+- learned more about using
+  [array join method](https://www.w3schools.com/jsref/jsref_join.asp)
 
 ## third solution
 
@@ -88,7 +93,7 @@ let smash = (words) => words.join(' ');
 
 ## strategy
 
-- another replace method solution but even more optimized
+- another join method solution but even more optimized
 
 ## implementation
 
@@ -97,11 +102,13 @@ let smash = (words) => words.join(' ');
 
 ### function - implicit
 
-### replace method- replaces all question marks in text at once with empty strings
+### join method - concatenates values in an array with spacing between values
 
 ## possible refractors
 
 - i cant imagine how this code can be any more economic and still work
+
+- could maybe benefit from some guards
 
 ## references
 
