@@ -23,7 +23,7 @@ function remove(s = '') {
   - the guard is the first condition in an if conditionals. i used `typeof` to
     confirm input data type is applicable.
 
-    - if the first condition doesnt pass function will execute and return
+    - if the first condition doesn't pass function will execute and return
       replaced string.
 
 ## possible refractors
