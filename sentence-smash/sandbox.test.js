@@ -46,6 +46,7 @@ const smash5 = (words = []) => {
   }
   for (let i = 0; i < words.length - 1; i++) {
     if (typeof words[i] !== 'string') {
+      // eslint-disable-next-line sonarjs/no-duplicate-string
       throw new TypeError('array is not an array of strings');
     }
   }
@@ -86,7 +87,7 @@ for (const solution of [smash5]) {
           describe('argument is an array of numbers', () => {
             it('[4, 87, 91] should throw a type error', () => {
               expect(() => solution([4, 87, 91])).toThrow(
-                new TypeError('array is not array of strings'),
+                new TypeError('array is not an array of strings'),
               );
             });
             describe('argument is an array of mixed values', () => {
