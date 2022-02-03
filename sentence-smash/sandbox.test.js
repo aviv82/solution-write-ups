@@ -41,11 +41,11 @@ const smash4 = (words = []) => {
 
 const smash5 = (words = []) => {
   if (!Array.isArray(words)) {
-    throw new TypeError('argument is not array');
+    throw new TypeError('argument is not an array');
   }
   for (let i = 0; i < words.length - 1; i++) {
     if (typeof words[i] !== 'string') {
-      throw new TypeError('array is not array of strings');
+      throw new TypeError('array is not an array of strings');
     }
   }
   return words.join(' ');
