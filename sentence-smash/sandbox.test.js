@@ -21,19 +21,35 @@ let smash3 = (words) => words.join(' ');
 */
 // my solutions
 
-// eslint-disable-next-line no-unused-vars
+// the function below does not pass tests
+
 const smash4 = (words = []) => {
   if (!Array.isArray(words)) {
     throw new TypeError('input words is not an array');
   } else if (
     words.forEach((isString) => {
-      return typeof isString !== 'string';
+      console.log(isString);
+      return typeof isString === 'string';
     })
   ) {
-    throw new TypeError('array is not array of strings');
+    throw new TypeError('array is not string array');
   }
   return words.join(' ');
 };
+
+// different approach, instead of forEach() use for loop
+
+const smash5 = (words = []) => {
+  if (!Array.isArray(words)) {
+    throw new TypeError('argument is not array');
+  }
+  for (let i = 0; i < words.length - 1; i++) {
+    if (typeof words[i] !== 'string') {
+      throw new TypeError('array is not array of strings');
+    }
+  }
+  return words.join(' ');
+}; // works!
 
 // provided test cases
 
@@ -43,7 +59,7 @@ const smash4 = (words = []) => {
 
 // write tests
 
-for (const solution of [smash4]) {
+for (const solution of [smash4, smash5]) {
   describe('concatenate values in array to a sentence string', () => {
     describe('default parameter is empty array', () => {
       it('default parameter returns empty string', () => {
@@ -82,7 +98,7 @@ for (const solution of [smash4]) {
           });
           describe('argument is not an array', () => {
             it('"tell me lies" --> throw TypeError', () => {
-              expect(() => solution('tell me lies')).toTrow(
+              expect(() => solution('tell me lies')).toThrow(
                 new TypeError('argument is not an array'),
               );
             });
