@@ -22,7 +22,7 @@ let smash3 = (words) => words.join(' ');
 // my solutions
 
 // the function below does not pass tests
-
+/*
 const smash4 = (words = []) => {
   if (!Array.isArray(words)) {
     throw new TypeError('input words is not an array');
@@ -36,7 +36,7 @@ const smash4 = (words = []) => {
   }
   return words.join(' ');
 };
-
+*/
 // different approach, instead of forEach() use for loop
 
 const smash5 = (words = []) => {
@@ -59,7 +59,7 @@ const smash5 = (words = []) => {
 
 // write tests
 
-for (const solution of [smash4, smash5]) {
+for (const solution of [smash5]) {
   describe('concatenate values in array to a sentence string', () => {
     describe('default parameter is empty array', () => {
       it('default parameter returns empty string', () => {
