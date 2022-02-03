@@ -1,32 +1,42 @@
 # remix
 
 ```js
-function remove(s = '') {
-  if (typeof s !== 'string') {
-    throw new TypeError('input text is not a string');
+const smash = (words = []) => {
+  if (!Array.isArray(words)) {
+    // eslint-disable-next-line sonarjs/no-duplicate-string
+    throw new TypeError('argument is not an array');
   }
-  return s.replace(/!+$/, '');
-}
+  for (let i = 0; i < words.length - 1; i++) {
+    if (typeof words[i] !== 'string') {
+      // eslint-disable-next-line sonarjs/no-duplicate-string
+      throw new TypeError('array is not an array of strings');
+    }
+  }
+  return words.join(' ');
+};
 ```
 
 ## strategy
 
-> i liked the replace method use better than the slice one. it is cleaner and
-> requires less operations. the only two things i wanted to change is make the
-> function more resistant to errors from incorrect user input and set default
-> parameter value to empty string
+> i thought using the join method was the best way to go with this function the
+> only thing i changed was add a couple of guards to protect my function from
+> faulty user input
 
 ## implementation
 
-- `throw new` i added a guard to filter data types that are not strings.
+- `throw new` i added a guard to filter data types that are not arrays.
 
-  - the guard is the first condition in an if conditionals. i used `typeof` to
-    confirm input data type is applicable.
+  - the guard is the first condition in an if conditionals. i used
+    `Array.isArray()` to confirm input data type is applicable.
 
-    - if the first condition doesnt pass function will execute and return
-      replaced string.
+    - if the first condition passes function will go through a second guard - a
+      `for loop` that checks each value of the array. i used `typeof` to check
+      value is a string
+    - once checks pass function executes `join` method and returns a string of
+      all array concatenated values and adds spacing between values.
 
 ## possible refractors
 
-- if condition could probably be written as ternary
-- function might be written as implicit(?)
+- if conditions could probably be written as ternary
+- might be a way to use forEach method instead of for loop but i had issues
+  figuring that out
