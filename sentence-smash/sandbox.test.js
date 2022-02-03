@@ -41,6 +41,7 @@ const smash4 = (words = []) => {
 
 const smash5 = (words = []) => {
   if (!Array.isArray(words)) {
+    // eslint-disable-next-line sonarjs/no-duplicate-string
     throw new TypeError('argument is not an array');
   }
   for (let i = 0; i < words.length - 1; i++) {
