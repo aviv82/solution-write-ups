@@ -40,7 +40,6 @@ finalGrade2 = (exam, projects) => {
             break;
 
          
-            */
 
 function finalGrade(e, p) {
   return e > 90 || p > 10
@@ -51,10 +50,26 @@ function finalGrade(e, p) {
     ? 75
     : 0;
 }
+            */
+
+// my solution
+
+const firstTry = (exam = 0, projects = 0) => {
+  if (exam > 90 || projects > 10) {
+    return 100;
+  }
+  if (exam > 75 && projects > 4) {
+    return 90;
+  }
+  if (exam > 50 && projects > 1) {
+    return 75;
+  }
+  return 0;
+};
 
 // unit testing
 
-for (const solution of [finalGrade]) {
+for (const solution of [firstTry]) {
   describe('calculates final grade according to set conditions', () => {
     describe('default parameters', () => {
       it('parameters are default should return 0', () => {
