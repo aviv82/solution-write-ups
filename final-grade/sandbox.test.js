@@ -70,8 +70,6 @@ const firstTry = (exam = 0, projects = 0) => {
   return 0;
 }; // works
 
-*/
-
 // second attempt; ternary inspired by third solution
 const secondTry = (exam = 0, projects = 0) => {
   return exam > 90 || projects > 10
@@ -83,16 +81,120 @@ const secondTry = (exam = 0, projects = 0) => {
     : 0;
 }; // works
 
+*/
+
 // i am not interested in refracting this function any more for reasons of readability
 // what i do want to do is add some guards to prevent faulty info input
 
+const thirdTry = (exam = 0, projects = 0) => {
+  const errorMessage = 'argument is not an integer positive rational number';
+  if (
+    !Number.isInteger(exam) ||
+    !Number.isInteger(projects) ||
+    typeof exam !== 'number' ||
+    typeof projects !== 'number' ||
+    !exam >= 0 ||
+    !projects >= 0 ||
+    Number.isNaN(exam) ||
+    Number.isNaN(projects) ||
+    exam === Infinity ||
+    projects === Infinity
+  ) {
+    throw new TypeError(errorMessage);
+  }
+  return exam > 90 || projects > 10
+    ? 100
+    : exam > 75 && projects > 4
+    ? 90
+    : exam > 50 && projects > 1
+    ? 75
+    : 0;
+};
+
+/*
+
+function secretSolution(a) {
+  if (!Array.isArray(a)) {
+    throw new TypeError('arrayOfStrings is not an array');
+  }
+  const b = a.some((a) => 'string' != typeof a);
+  if (b) {
+    throw new TypeError('arrayOfStrings contains non-strings');
+  }
+  const c = a.map((a) => +a),
+    d = c.filter((a) => !Number.isNaN(a));
+  return d;
+}
+
+*/
 // unit testing
 
-for (const solution of [secondTry]) {
+for (const solution of [thirdTry]) {
+  const errorMessage = 'argument is not an integer positive rational number';
   describe('calculates final grade according to set conditions', () => {
     describe('default parameters', () => {
       it('parameters are default should return 0', () => {
         expect(solution()).toEqual(0);
+      });
+    });
+    describe('arguments are not integer numbers', () => {
+      it('first argument is not integer - should throw type error', () => {
+        expect(() => solution(12.5, 8)).toThrow(new TypeError(errorMessage));
+      });
+      it('second argument is not integer - should throw type error', () => {
+        expect(() => solution(9, 4.8)).toThrow(new TypeError(errorMessage));
+      });
+    });
+    describe('arguments are not positive numbers', () => {
+      it('first argument is not positive - should throw type error', () => {
+        expect(() => solution(-7, 6)).toThrow(new TypeError(errorMessage));
+      });
+      it('second argument is not positive - should throw type error', () => {
+        expect(() => solution(14, -3)).toThrow(new TypeError(errorMessage));
+      });
+    });
+    describe('arguments are NaN', () => {
+      it('first argument is NaN - should throw type error', () => {
+        expect(() => solution(NaN, 12)).toThrow(new TypeError(errorMessage));
+      });
+      it('second argument is NaN - should throw type error', () => {
+        expect(() => solution(NaN, 1)).toThrow(new TypeError(errorMessage));
+      });
+    });
+    describe('arguments are infinity', () => {
+      it('first argument is infinity - should throw type error', () => {
+        expect(() => solution(Infinity, 6)).toThrow(
+          new TypeError(errorMessage),
+        );
+      });
+      it('second argument is infinity - should throw type error', () => {
+        expect(() => solution(14, Infinity)).toThrow(
+          new TypeError(errorMessage),
+        );
+      });
+    });
+    describe('arguments are not numbers', () => {
+      it('first argument is a string - should throw type error', () => {
+        expect(() => solution('9', 6)).toThrow(new TypeError(errorMessage));
+      });
+      it('second argument is a boolean - should throw type error', () => {
+        expect(() => solution(14, false)).toThrow(new TypeError(errorMessage));
+      });
+      it('first argument is not a number - should throw type error', () => {
+        expect(() => solution(null, 6)).toThrow(new TypeError(errorMessage));
+      });
+      it('second argument is not a number - should throw type error', () => {
+        expect(() => solution(14, undefined)).toThrow(
+          new TypeError(errorMessage),
+        );
+      });
+      it('first argument is not a number - should throw type error', () => {
+        expect(() => solution([5, 8], 6)).toThrow(new TypeError(errorMessage));
+      });
+      it('second argument is not a number - should throw type error', () => {
+        expect(() => solution(14, { 0: 4, 1: 2 })).toThrow(
+          new TypeError(errorMessage),
+        );
       });
     });
     describe('arguments are numbers', () => {
