@@ -54,6 +54,9 @@ function finalGrade(e, p) {
 
 // my solution
 
+/*
+
+// first try inspired by first solution
 const firstTry = (exam = 0, projects = 0) => {
   if (exam > 90 || projects > 10) {
     return 100;
@@ -65,11 +68,27 @@ const firstTry = (exam = 0, projects = 0) => {
     return 75;
   }
   return 0;
-};
+}; // works
+
+*/
+
+// second attempt; ternary inspired by third solution
+const secondTry = (exam = 0, projects = 0) => {
+  return exam > 90 || projects > 10
+    ? 100
+    : exam > 75 && projects > 4
+    ? 90
+    : exam > 50 && projects > 1
+    ? 75
+    : 0;
+}; // works
+
+// i am not interested in refracting this function any more for reasons of readability
+// what i do want to do is add some guards to prevent faulty info input
 
 // unit testing
 
-for (const solution of [firstTry]) {
+for (const solution of [secondTry]) {
   describe('calculates final grade according to set conditions', () => {
     describe('default parameters', () => {
       it('parameters are default should return 0', () => {
