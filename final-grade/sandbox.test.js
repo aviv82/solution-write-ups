@@ -93,12 +93,12 @@ const thirdTry = (exam = 0, projects = 0) => {
     !Number.isInteger(projects) ||
     typeof exam !== 'number' ||
     typeof projects !== 'number' ||
-    !exam >= 0 ||
-    !projects >= 0 ||
-    Number.isNaN(exam) ||
-    Number.isNaN(projects) ||
+    exam < 0 ||
+    projects < 0 ||
     exam === Infinity ||
-    projects === Infinity
+    projects === Infinity ||
+    Number.isNaN(exam) ||
+    Number.isNaN(projects)
   ) {
     throw new TypeError(errorMessage);
   }
@@ -109,7 +109,7 @@ const thirdTry = (exam = 0, projects = 0) => {
     : exam > 50 && projects > 1
     ? 75
     : 0;
-};
+}; // works
 
 /*
 
@@ -184,7 +184,7 @@ for (const solution of [thirdTry]) {
         expect(() => solution(null, 6)).toThrow(new TypeError(errorMessage));
       });
       it('second argument is not a number - should throw type error', () => {
-        expect(() => solution(14, undefined)).toThrow(
+        expect(() => solution(14, ['o', 8])).toThrow(
           new TypeError(errorMessage),
         );
       });
