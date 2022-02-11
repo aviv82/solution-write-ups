@@ -43,7 +43,7 @@ const finalGrade = (exam = 0, projects = 0) => {
     `Number.isInteger()`, `Number.isNaN` and `typeof` to confirm input data type
     is applicable.
 
-    - if the guards dont pass they will throw an error message using
+    - if the guards don't pass they will throw an error message using
       `throw new TypeError`
     - once checks pass function runs a ternary set of `if` conditions in order
       to calculate the student's final score
