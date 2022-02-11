@@ -1,6 +1,8 @@
 {
   "language": "en",
-  "words": [],
+  "words": [
+    "typeof"
+  ],
   "ignorePaths": [
     "node_modules/**",
     "package.json",
