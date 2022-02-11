@@ -39,7 +39,7 @@ finalGrade2 = (exam, projects) => {
             return 0;
             break;
 
-         
+
 
 function finalGrade(e, p) {
   return e > 90 || p > 10
@@ -87,21 +87,29 @@ const secondTry = (exam = 0, projects = 0) => {
 // what i do want to do is add some guards to prevent faulty info input
 
 const thirdTry = (exam = 0, projects = 0) => {
+  // declare default error message to variable, easily repeatable
   const errorMessage = 'argument is not an integer positive rational number';
   if (
+    // check if arguments are not integers
     !Number.isInteger(exam) ||
     !Number.isInteger(projects) ||
+    // check if arguments not a number
     typeof exam !== 'number' ||
     typeof projects !== 'number' ||
+    // check if arguments are negative numbers
     exam < 0 ||
     projects < 0 ||
+    // check if arguments equal infinity
     exam === Infinity ||
     projects === Infinity ||
+    // check if arguments are NaN
     Number.isNaN(exam) ||
     Number.isNaN(projects)
   ) {
+    // if one of the guard checks fails throw type error
     throw new TypeError(errorMessage);
   }
+  // if all guard checks pass execute ternary condition set and return grade
   return exam > 90 || projects > 10
     ? 100
     : exam > 75 && projects > 4
